@@ -14,7 +14,7 @@ function IncomeStatement() {
   });
 
   useEffect(() => {
-    let url = 'http://localhost:5000/api/income-statement';
+    let url = `${process.env.REACT_APP_API_URL}/api/income-statement`;
     if (dateRange.startDate && dateRange.endDate) {
       url += `?startDate=${dateRange.startDate.toISOString()}&endDate=${dateRange.endDate.toISOString()}`;
     }

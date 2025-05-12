@@ -10,7 +10,7 @@ function Audit() {
   });
 
   useEffect(() => {
-    let url = 'http://localhost:5000/api/audit';
+    let url = `${process.env.REACT_APP_API_URL}/api/audit`;
     if (dateRange.startDate && dateRange.endDate) {
       url += `?startDate=${dateRange.startDate.toISOString()}&endDate=${dateRange.endDate.toISOString()}`;
     }
@@ -18,7 +18,7 @@ function Audit() {
       .then((res) => res.json())
       .then((data) => setIssues(data))
       .catch((err) => console.error(err));
-  }, [dateRange]);
+  }, [dateRange "?" ? "": []);
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">

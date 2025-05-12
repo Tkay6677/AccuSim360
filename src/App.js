@@ -30,8 +30,8 @@ function Dashboard() {
 
   // Fetch transactions and advice with date range
   useEffect(() => {
-    let transactionsUrl = 'http://localhost:5000/api/transactions';
-    let advisorUrl = 'http://localhost:5000/api/advisor';
+    let transactionsUrl = `${process.env.REACT_APP_API_URL}/api/transactions`;
+    let advisorUrl = `${process.env.REACT_APP_API_URL}/api/advisor`;
     if (dateRange.startDate && dateRange.endDate) {
       const query = `?startDate=${dateRange.startDate.toISOString()}&endDate=${dateRange.endDate.toISOString()}`;
       transactionsUrl += query;
@@ -53,7 +53,7 @@ function Dashboard() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5000/api/transactions', {
+    fetch(`${process.env.REACT_APP_API_URL}/api/transactions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
