@@ -18,7 +18,7 @@ function Audit() {
       .then((res) => res.json())
       .then((data) => setIssues(data))
       .catch((err) => console.error(err));
-  }, [dateRange "?" ? "": []);
+  }, [dateRange]);
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
